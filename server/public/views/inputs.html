@@ -1,0 +1,20 @@
+<div class="container" ng-controller="TaskController">
+    <button class="btn btn-info get">Get Info</button>
+
+    <div class="col-md-4">
+        <form id="taskForm" method="post">
+            <div>
+                <label for="text">Task:</label>
+                <input ng-model="task.message" type="text" placeholder="Enter Your Task" name="text" id="text"/>
+                <button type="submit" class="btn btn-info post" ng-click="updateTask(task)" value="Create Task">Create Task</button>
+            </div>
+        </form>
+    </div>
+    <div id="someContainer" class="container">
+        <div ng-repeat="(id, task) in tasks" class="task well col=md-3">
+            <p ng-class="{completed: tasks.complete}" ng-click="completeTask(task._id, task.message, task.complete)" class="lead">{{task.message}}</p>
+            <button ng-click="removeTask(task._id)" class='btn btn-danger delete'>X</button>
+        </div>
+
+    </div>
+</div>
